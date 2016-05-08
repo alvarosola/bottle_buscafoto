@@ -12,7 +12,7 @@
 	<body>
 		<h1>Busca fotos</h1>
 		<form action = '/busqueda' method='POST'>
-			<h2>Bienvenido, introduce el nombre de foto que quiera ver.</h2>
+			<h2>Bienvenido, introduzca el nombre de foto que quiera ver.</h2>
 			<input type = 'text' name='articulo' size='50' placeholder='Introduzca un nombre'/>
 			<input type = 'submit' value='Buscar' class="btn btn-success" />
 		</form>
