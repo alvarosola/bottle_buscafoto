@@ -4,12 +4,23 @@ import json
 from requests_oauthlib import OAuth1
 from urlparse import parse_qs
 
+#ruta index
 @route('/')
 def index():
 	return template('index')
 
-'''
+#ruta busqueda
+#@route('/busqueda')
+#def busqueda():
 
+#ruta detalle camara
+
+#ruta lugar geografico
+
+
+
+
+'''
 @route('/name/<name>')
 def nameindex(name='Stranger'):
     return '<strong>Hello, %s!</strong>' % name
