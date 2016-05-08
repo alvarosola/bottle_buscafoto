@@ -4,6 +4,8 @@ import json
 from requests_oauthlib import OAuth1
 from urlparse import parse_qs
 
+api_key=5e540fc0e14e6863f1d69c5a15880c4a
+
 #ruta index
 @route('/')
 def index():
@@ -16,8 +18,6 @@ def index():
 #ruta detalle camara
 
 #ruta lugar geografico
-
-
 
 
 '''
