@@ -3,6 +3,10 @@
 <html xmlns ="http://www.w3.org/1999/xhtml" xml:lang="es">
 	<head>
 		<title>Busca fotos</title>
+		<!-- Bootstrap core CSS -->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">	
 		<link href="/static/estilo.css" rel="stylesheet">
 	</head>
 	<body>
