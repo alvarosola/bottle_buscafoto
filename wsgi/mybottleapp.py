@@ -1,4 +1,14 @@
-from bottle import route, default_app, template, static_file
+from bottle import route, default_app, get, post, run, template, error, request, static_file, response
+import requests
+import json
+from requests_oauthlib import OAuth1
+from urlparse import parse_qs
+
+@route('/')
+def buscar():
+	return template('index')
+
+'''
 
 @route('/name/<name>')
 def nameindex(name='Stranger'):
@@ -15,7 +25,7 @@ def hello(name='Mundo'):
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
-    return static_file(filepath, root=os.environ['OPENSHIFT_REPO_DIR']+"wsgi/static")
+    return static_file(filepath, root=os.environ['OPENSHIFT_REPO_DIR']+"wsgi/static")'''
 
 # This must be added in order to do correct path lookups for the views
 import os
