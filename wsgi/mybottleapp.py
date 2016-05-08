@@ -1,4 +1,4 @@
-from bottle import route, default_app, template
+from bottle import route, default_app, template, static_file
 
 @route('/name/<name>')
 def nameindex(name='Stranger'):
@@ -12,6 +12,10 @@ def index():
 @route('/hello/<name>')
 def hello(name='Mundo'):
     return template('template_hello.tpl', nombre=name)
+
+@route('/static/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root=os.environ['OPENSHIFT_REPO_DIR']+"wsgi/static")
 
 # This must be added in order to do correct path lookups for the views
 import os
