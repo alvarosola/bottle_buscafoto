@@ -11,6 +11,7 @@ from urlparse import parse_qs
 def index():
 	return template('index')
 
+
 #ruta busqueda
 #@route('/busqueda')
 #def busqueda():
