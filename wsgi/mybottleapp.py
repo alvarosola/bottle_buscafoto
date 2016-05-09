@@ -1,8 +1,8 @@
 from bottle import route, default_app, get, post, run, template, error, request, static_file, response
 import requests
 import json
-from requests_oauthlib import OAuth1
-from urlparse import parse_qs
+#from requests_oauthlib import OAuth1
+#from urlparse import parse_qs
 
 #api_key=5e540fc0e14e6863f1d69c5a15880c4a
 
@@ -36,7 +36,7 @@ def hello(name='Mundo'):
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
-    return static_file(filepath, root=os.environ['OPENSHIFT_REPO_DIR']+"wsgi/static")
+    return static_file(filepath, root=os.environ['OPENSHIFT_REPO_DIR']+"static")
 
 # This must be added in order to do correct path lookups for the views
 import os
