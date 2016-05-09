@@ -10,7 +10,7 @@ url_base="https://api.flickr.com/services/rest"
 #ruta index
 @route('/')
 def index():
-	return template('index')
+	return template('index.tpl')
 
 '''
 #ruta busqueda
@@ -20,7 +20,6 @@ def busqueda():
 	r=requests.get(url_base,params=payload)
 	if r.status_code==200:
 		return template("busqueda.tpl",info=r.text)'''
-
 
 #ruta detalle camara
 
