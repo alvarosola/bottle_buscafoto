@@ -15,8 +15,8 @@ def index():
 #ruta busqueda
 @route('/busqueda',method='POST')
 def busqueda():
-	nombre=str(request.forms.get('foto'))
-	payload={method="flickr.photos.search",api_key=key,text=nombre,format="json"}
+#nombre=str(request.forms.get('foto'))
+	payload={method="flickr.photos.search",api_key=key,text="perro",format="json"}
 	r=requests.get(url_base,params=payload)
 	if r.status_code==200:
 		return template("busqueda.tpl",info=r.text)
