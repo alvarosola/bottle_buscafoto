@@ -25,20 +25,6 @@ def busqueda():
 
 #ruta lugar geografico
 
-'''
-@route('/name/<name>')
-def nameindex(name='Stranger'):
-    return '<strong>Hello, %s!</strong>' % name
- 
-@route('/')
-def index():
-    return '<strong>Hello World!</strong>'
-
-@route('/hello/')
-@route('/hello/<name>')
-def hello(name='Mundo'):
-    return template('template_hello.tpl', nombre=name)'''
-
 @route('/static/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, root=os.environ['OPENSHIFT_REPO_DIR']+"static")
