@@ -8,6 +8,7 @@
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">	
 		<link href="/static/estilo.css" rel="stylesheet">
+		<img class="fondo" src="/static/fondo.png" alt="">
 	</head>
 	<body>
 		<h1>Busca fotos</h1>
