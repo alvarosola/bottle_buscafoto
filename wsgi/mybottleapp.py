@@ -4,7 +4,7 @@ import json
 #from requests_oauthlib import OAuth1
 #from urlparse import parse_qs
 
-key=5e540fc0e14e6863f1d69c5a15880c4a
+key="5e540fc0e14e6863f1d69c5a15880c4a"
 url_base="https://api.flickr.com/services/rest"
 
 #ruta index
