@@ -17,3 +17,7 @@ body {
     background-size: cover;
     -o-background-size: cover;
 }
+
+.formulario {
+	background-color: transparent;
+}
