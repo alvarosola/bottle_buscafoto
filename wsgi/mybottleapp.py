@@ -12,14 +12,14 @@ url_base="https://api.flickr.com/services/rest"
 def index():
 	return template('index')
 
-
+'''
 #ruta busqueda
 @route('/busqueda')
 def busqueda():
 	payload={method="flickr.photos.search",api_key=key,text="arbol",format="json"}
 	r=requests.get(url_base,params=payload)
 	if r.status_code==200:
-		return template("busqueda.tpl",info=r.text)
+		return template("busqueda.tpl",info=r.text)'''
 
 
 #ruta detalle camara
