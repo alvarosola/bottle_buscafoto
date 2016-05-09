@@ -32,8 +32,8 @@
 		<h1>Busca fotos</h1>
 		<form action = '/busqueda' method='POST'>
 			<h2>Bienvenido, introduzca el nombre de foto que quiera ver.</h2>
-			<input type = 'text' name='foto' size='50' placeholder='Introduzca un nombre'/>
-			<input type = 'submit' value='Buscar' class="btn btn-success" />
+			<input type="text" name="foto" size="50" placeholder='Introduzca un nombre'/>
+			<input type="submit" value="Buscar" class="btn btn-success" />
 		</form>
 	</div>
     <!-- Put your page content here! -->

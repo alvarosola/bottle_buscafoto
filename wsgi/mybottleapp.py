@@ -5,21 +5,21 @@ import json
 #from urlparse import parse_qs
 
 key="5e540fc0e14e6863f1d69c5a15880c4a"
-url_base="https://api.flickr.com/services/rest"
+url_base="https://api.flickr.com/services/rest/?"
 
 #ruta index
 @route('/')
 def index():
 	return template('index.tpl')
 
-'''
 #ruta busqueda
-@route('/busqueda')
+@route('/busqueda',method='POST')
 def busqueda():
-	payload={method="flickr.photos.search",api_key=key,text="arbol",format="json"}
+	nombre=str(request.forms.get('foto'))
+	payload={method="flickr.photos.search",api_key=key,text=nombre,format="json"}
 	r=requests.get(url_base,params=payload)
 	if r.status_code==200:
-		return template("busqueda.tpl",info=r.text)'''
+		return template("busqueda.tpl",info=r.text)
 
 #ruta detalle camara
 
@@ -28,6 +28,10 @@ def busqueda():
 @route('/static/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, root=os.environ['OPENSHIFT_REPO_DIR']+"static")
+
+@route(404)
+def error(error):
+	return "Error 404"
 
 # This must be added in order to do correct path lookups for the views
 import os
