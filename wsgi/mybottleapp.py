@@ -4,7 +4,7 @@ import json
 #from requests_oauthlib import OAuth1
 #from urlparse import parse_qs
 
-key=5e540fc0e14e6863f1d69c5a15880c4a
+key="5e540fc0e14e6863f1d69c5a15880c4a"
 url_base="https://api.flickr.com/services/rest"
 
 #ruta index
@@ -15,8 +15,8 @@ def index():
 #ruta busqueda
 @route('/busqueda',method='POST')
 def busqueda():
-#nombre=str(request.forms.get('foto'))
-	payload={method="flickr.photos.search",api_key=key,text="perro",format="json"}
+	nombre=str(request.forms.get('foto'))
+	payload={'method':'flickr.photos.search','api_key':key,'text':nombre,'format':'json'}
 #https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=42c4c2df25b50670ab964bef4372f3bd&text=perro&format=json
 	r=requests.get(url_base,params=payload)
 	if r.status_code==200:
