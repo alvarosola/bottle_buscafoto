@@ -28,7 +28,7 @@
 </head>
 
 <body>
-		<h1>Busqueda</h1>
+		<h1>Resultados de la búsqueda</h1>
 
     <!-- Put your page content here! -->
 
