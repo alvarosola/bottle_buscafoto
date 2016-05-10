@@ -1,7 +1,6 @@
 from bottle import route, default_app, get, post, run, template, error, request, static_file, response
 import requests
 import json
-from lxml import etree
 #from requests_oauthlib import OAuth1
 #from urlparse import parse_qs
 
