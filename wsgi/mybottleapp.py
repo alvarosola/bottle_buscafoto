@@ -1,6 +1,7 @@
 from bottle import route, default_app, get, post, run, template, error, request, static_file, response
 import requests
 import json
+from lxml import etree
 #from requests_oauthlib import OAuth1
 #from urlparse import parse_qs
 
@@ -17,9 +18,14 @@ def index():
 def busqueda():
 	nombre=str(request.forms.get('foto'))
 	payload={'method':'flickr.photos.search','api_key':key,'text':nombre,'format':'json'}
+#EJEMPLO DE URL:
 #https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=42c4c2df25b50670ab964bef4372f3bd&text=perro&format=json
 	r=requests.get(url_base,params=payload)
 	if r.status_code==200:
+#PRUEBAS PARA DEVOLVER ID
+#		doc = etree.fromstring(r.text.encode ('utf-8'))
+#		busq=doc.find("photo").attrib["id"]
+#		return template("busqueda",id=busq)
 		return template("busqueda.tpl",info=r.text)
 
 #ruta detalle camara
