@@ -1,6 +1,7 @@
 from bottle import route, default_app, get, post, run, template, error, request, static_file, response
 import requests
 import json
+
 #from requests_oauthlib import OAuth1
 #from urlparse import parse_qs
 
@@ -22,10 +23,10 @@ def busqueda():
 	r=requests.get(url_base,params=payload)
 	print r.url
 	if r.status_code==200:
-#PRUEBAS PARA DEVOLVER ID
 #		doc = etree.fromstring(r.text.encode ('utf-8'))
 #		busq=doc.find("photo").attrib["id"]
-#		return template("busqueda",id=busq)
+#		return template("busqueda.tpl",id=busq)
+
 		return template("busqueda.tpl",info=r.text)
 
 #ruta detalle camara
