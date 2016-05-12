@@ -24,18 +24,21 @@ def busqueda():
 #EJEMPLO DE URL:
 #https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=42c4c2df25b50670ab964bef4372f3bd&text=perro&format=json
 	r=requests.get(url_base,params=payload)
-#	print r.url
+	lista=[]
+	print r.url
 	if r.status_code==200:
 #IMPRIMIR ID:
-#		datos = json.load(r)		
-#		for busq in datos["photos"]["photo"]:
-#			return template("busqueda.tpl",id=busq["id"])
+		doc = json.loads(r.text[14:-1])
+				
+		for x in doc["photos"]["photo"]:
+			lista.append(x["id"])
+		return template("busqueda.tpl",info=lista)
 
 #		doc = etree.fromstring(r.text.encode ('utf-8'))
 #		busq=doc.find("photo").attrib["id"]
 #		return template("busqueda.tpl",id=busq.text)
 
-		return template("busqueda.tpl",info=r.text)
+#		return template("busqueda.tpl",info=r.text)
 
 #ruta detalle camara
 

@@ -30,6 +30,9 @@
 <body>
 		<h1>Resultados de la búsqueda</h1>
 
+        % for id in info:
+            <p>{{id}}</p>
+        % end
     <!-- Put your page content here! -->
 
     <!-- jQuery -->
