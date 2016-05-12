@@ -31,7 +31,7 @@
 		<h1>Resultados de la búsqueda</h1>
 
         % for id in info:
-            <p>{{id}}</p>
+            <img src={{id}}>
         % end
     <!-- Put your page content here! -->
 
