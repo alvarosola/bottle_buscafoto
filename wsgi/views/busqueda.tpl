@@ -33,7 +33,7 @@
         % for id in info:
             <p>
                 <a href="{{id}}"><img src="{{id}}" height="100" width="100"></a>
-                <a href="#" onclick="window.open('camara.tpl');">Detalles</a>
+                <a href="camara.tpl">Detalles</a>
             </p>
         % end
     <!-- Put your page content here! -->

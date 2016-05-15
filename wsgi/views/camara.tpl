@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Detalles cámara</title>
+    <title>Detalles</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
 </head>
 
 <body>
-		<h1>Detalles de la Cámara</h1>
+		<h1>Detalles de la foto</h1>
 
     <!-- Put your page content here! -->
 
