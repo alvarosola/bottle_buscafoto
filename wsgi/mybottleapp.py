@@ -25,31 +25,27 @@ def busqueda():
 # https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3e43ddf68638ce426d5e4aae08250ea4&text=arbol&extras=url_o&format=json
 	r=requests.get(url_base,params=payload)
 	lista=[]
-#	lista1=[]
+	lista1=[]
 	print r.url
 	if r.status_code==200:
-#IMPRIMIR ID:
+#Obtener URL de fotos:
 		doc = json.loads(r.text[14:-1])
 		#print doc
 		print r.url
 		for x in doc["photos"]["photo"]:
 			if x.has_key("url_o"):
 				lista.append(x['url_o'])
-#EJEMPLO URL:
-#https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=3e43ddf68638ce426d5e4aae08250ea4&photo_id=26692818150&format=json
-#		payload1={'method':'flickr.photos.getInfo','api_key':key,'photo_id':lista,'format':'json'}
-#		r1=requests.get(url_base,params=payload1)
-#		if r1.status_code==200:
-#			doc1 = json.loads(r1.text[14:-1])
-#			for i in doc1["photo"]["urls"]["url"]:
-#				lista1.append(i["_content"])
+#Obtener IDS de fotos:
+		for i in doc["photos"]["photo"]:
+			if i.has_key("id"):
+				lista1.append(i['id'])
 
-		return template("busqueda.tpl",info=lista)
+		return template("busqueda.tpl",info=lista,ids=lista1)
 
 #ruta detalle camara
 
-@route ('/detalles')
-def camara():
+@route ('/detalles/<id>')
+def detalles(id):
 	return template('detalles.tpl')
 
 #ruta lugar geografico

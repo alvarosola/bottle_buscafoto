@@ -30,12 +30,12 @@
 <body>
 		<h1>Resultados de la búsqueda</h1>
 
-        % for id in info:
+        % for id,url in zip (ids,info):
             <p>
-                <a href="{{id}}"><img src="{{id}}" height="100" width="100"></a>
+                <a href="{{url}}"><img src="{{url}}" height="100" width="100"></a>
             </p>
             <p>
-                <a href="camara.tpl">Detalles</a>
+                <a href="/detalles/{{id}}">Detalles</a>
             </p>
         % end
     <!-- Put your page content here! -->
