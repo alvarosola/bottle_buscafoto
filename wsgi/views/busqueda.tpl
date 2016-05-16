@@ -33,6 +33,8 @@
         % for id in info:
             <p>
                 <a href="{{id}}"><img src="{{id}}" height="100" width="100"></a>
+            </p>
+            <p>
                 <a href="camara.tpl">Detalles</a>
             </p>
         % end
