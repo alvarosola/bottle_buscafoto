@@ -48,9 +48,9 @@ def busqueda():
 
 #ruta detalle camara
 
-@route ('/camara')
+@route ('/detalles')
 def camara():
-	return template('camara')
+	return template('detalles.tpl')
 
 #ruta lugar geografico
 
