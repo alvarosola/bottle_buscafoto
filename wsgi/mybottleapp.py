@@ -26,6 +26,7 @@ def busqueda():
 	r=requests.get(url_base,params=payload)
 	lista=[]
 	lista1=[]
+	lista2=[]
 	print r.url
 	if r.status_code==200:
 #Obtener URL de fotos:
@@ -46,7 +47,20 @@ def busqueda():
 
 @route ('/detalles/<id>')
 def detalles(id):
-	return template('detalles.tpl')
+	payload1={'method':'flickr.photos.getExif','api_key':key,'photo_id':id,'format':'json'}
+#EJEMPLO URL:
+#https://api.flickr.com/services/rest/?method=flickr.photos.getExif&api_key=01480c276d9e03abc8cb4e2273450144&photo_id=26952354992&format=json
+	x=requests.get(url_base,params=payload1)
+	if x.status_code==200:
+		print x.text
+		doc1=json.loads(x.text)
+
+		for l in doc1["photo"]:
+			if l.has_key("camera"):
+				lista2.append(x['camera'])		
+
+
+	return template('detalles.tpl',camara=lista2)
 
 #ruta lugar geografico
 
