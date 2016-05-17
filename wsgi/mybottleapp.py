@@ -53,7 +53,7 @@ def detalles(id):
 	print r1.url
 	if r1.status_code==200:
 		doc1 = json.loads(r1.text[14:-1])
-		print doc1
+		#print doc1
 #Obtener detalles camara
 		for prueba in doc1["photo"]:
 			lista2.append(prueba['camera'])		
