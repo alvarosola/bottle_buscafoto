@@ -30,7 +30,7 @@
 <body>
 		<h1>Detalles de la foto</h1>
 
-        % for x in camera:
+        % for x in camara:
             <p>
                 <h2>Modelo cámara</h2>
             </p>
