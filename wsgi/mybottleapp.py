@@ -53,13 +53,22 @@ def detalles(id):
 	print r1.url
 	if r1.status_code==200:
 		doc1 = json.loads(r1.text[14:-1])
+
+		if doc1.has_key('photo'):
+
 		#print doc1
 #Obtener detalles camara
-		for prueba in doc1["photo"]:
-			lista2.append(prueba['camera'])		
+#		for prueba in doc1["photo"]:
+			if doc1['photo'].has_key('camera'):
+				if not len(doc1['photo']['camera']) <= 2:
+					fich = doc1['photo']['camera']
+				else:
+					fich = 'La imagen no contiene informacion de la imagen'
+		else:
+			fich = 'No hay camara'
 
 
-	return template('detalles.tpl',camara=lista2)
+	return template('detalles.tpl',camara=fich)
 
 #ruta lugar geografico
 
