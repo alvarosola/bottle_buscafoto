@@ -30,7 +30,15 @@
 <body>
 		<h1>Detalles de la foto</h1>
 
-        <p>Modelo: {{camara}}</p>
+        <h3>Modelo</h3>
+            <p>{{camara}}</p>
+
+        <h3>Características de la foto</h3>
+        % for nombre,dato in zip (labels,info):
+            <p>{{nombre}}: {{dato}}</p>
+            
+        % end
+
 
     <!-- Put your page content here! -->
 

@@ -51,6 +51,9 @@ def detalles(id):
 #https://api.flickr.com/services/rest/?method=flickr.photos.getExif&api_key=01480c276d9e03abc8cb4e2273450144&photo_id=26952354992&format=json
 	r1=requests.get(url_base,params=payload1)
 	lista2=[]
+	lista_info=[]
+	lista_label=["Orientation","Software","Exposure","Aperture","ISO Speed","Date and Time (Original)","Flash","Saturation"]
+	lista_label_esp=["Orientacion","Software","Exposure","Apertura","ISO","Fecha","Flash","Saturacion"]
 	print r1.url
 	if r1.status_code==200:
 		doc1 = json.loads(r1.text[14:-1])
@@ -59,22 +62,26 @@ def detalles(id):
 
 		#print doc1
 #Obtener detalles camara
-#		for prueba in doc1["photo"]:
 			if doc1['photo'].has_key('camera'):
 				if not len(doc1['photo']['camera']) <= 2:
 					fich = doc1['photo']['camera']
 				else:
 					fich = 'La imagen no contiene informacion de la camara'
+		
+#Obtener caracteristicas de fotos
+			for info in doc1['photo']['exif']:
+				if info['label'] in lista_label:
+					lista_info.append(info['raw']['_content'])
+
 		else:
-			fich = 'No hay camara'
+			fich = 'No hay informacion'
 
-
-	return template('detalles.tpl',camara=fich)
+	return template('detalles.tpl',camara=fich,labels=lista_label_esp,info=lista_info)
 
 #ruta lugar geografico
-@route("/mapa/<id>")
-def mapa(id):
-	return template("mapa.html",ubicaciones=[[41.700730,2.858247]])
+#@route("/mapa/<id>")
+#def mapa(id):
+#	return template("mapa.tpl",ubicaciones=[[41.700730,2.858247]])
 
 
 @route('/static/<filepath:path>')
