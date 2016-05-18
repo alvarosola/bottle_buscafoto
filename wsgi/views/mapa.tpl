@@ -58,7 +58,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         <h1>Prueba</h1>
                     </a>
                 </div><!-- logo -->
-                            </div><!-- wrap -->
+            </div><!-- wrap -->
         </header>
 	<div id="map-canvas">
 	</div>

@@ -9,6 +9,7 @@ sys.setdefaultencoding("utf-8")
 #from urlparse import parse_qs
 
 key="5e540fc0e14e6863f1d69c5a15880c4a"
+key_map="AIzaSyDFSz1bWuKblcP_HgspOEHPZKt8KMrqZkg"
 url_base="https://api.flickr.com/services/rest"
 
 #ruta index
@@ -79,9 +80,23 @@ def detalles(id):
 	return template('detalles.tpl',camara=fich,labels=lista_label_esp,info=lista_info)
 
 #ruta lugar geografico
-#@route("/mapa/<id>")
-#def mapa(id):
-#	return template("mapa.tpl",ubicaciones=[[41.700730,2.858247]])
+@route("/mapa/<id>")
+def mapa(id):
+	payload2={'method':'flickr.photos.geo.getLocation','api_key':key,'photo_id':id,'format':'json'}
+#EJEMPLO URL:
+#https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=77e3791687c77867f657da988a6637ef&photo_id=3231279723&format=json
+	r2=requests.get(url_base,params=payload2)
+	lista3=[]
+	print r2.url
+	if r.status_code==200:
+		doc2 = json.loads(r.text[14:-1])
+		#print doc2
+#Obtener latitud y longitud
+		for geo in doc2["photo"]["location"]:
+			if geo.has_key("location"):
+				lista3.append([geo['latitude'],geo["longitude"]])
+
+	return template("mapa.tpl",ubicaciones=lista3)
 
 
 @route('/static/<filepath:path>')
