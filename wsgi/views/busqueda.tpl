@@ -32,7 +32,7 @@
 
         % for id,url in zip (ids,info):
             <p>
-                <a href="{{url}}"><img src="{{url}}" height="100" width="100"></a>
+                <a href="{{url[1]}}"><img src="{{url[0]}}"></a>
             </p>
             <p>
                 <a href="/detalles/{{id}}">Detalles</a>

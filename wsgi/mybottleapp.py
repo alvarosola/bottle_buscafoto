@@ -20,7 +20,7 @@ def index():
 @route('/busqueda',method='POST')
 def busqueda():
 	nombre=request.forms.get('foto')
-	payload={'method':'flickr.photos.search','api_key':key,'text':nombre,'extras':'url_o','format':'json'}
+	payload={'method':'flickr.photos.search','api_key':key,'text':nombre,'extras':'url_o,url_s','format':'json'}
 #EJEMPLO DE URL:
 # https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3e43ddf68638ce426d5e4aae08250ea4&text=arbol&extras=url_o&format=json
 	r=requests.get(url_base,params=payload)
@@ -33,12 +33,13 @@ def busqueda():
 #Obtener URL de fotos:
 		for x in doc["photos"]["photo"]:
 			if x.has_key("url_o"):
-				lista.append(x['url_o'])
+				lista.append([x['url_s'],x["url_o"]])
 #Obtener IDS de fotos:
 		for i in doc["photos"]["photo"]:
 			if i.has_key("id"):
 				lista1.append(i['id'])
 
+		print lista
 		return template("busqueda.tpl",info=lista,ids=lista1)
 
 #ruta detalle camara
@@ -63,7 +64,7 @@ def detalles(id):
 				if not len(doc1['photo']['camera']) <= 2:
 					fich = doc1['photo']['camera']
 				else:
-					fich = 'La imagen no contiene informacion de la imagen'
+					fich = 'La imagen no contiene informacion de la camara'
 		else:
 			fich = 'No hay camara'
 
@@ -71,6 +72,10 @@ def detalles(id):
 	return template('detalles.tpl',camara=fich)
 
 #ruta lugar geografico
+@route("/mapa/<id>")
+def mapa(id):
+	return template("mapa.html",ubicaciones=[[41.700730,2.858247]])
+
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
