@@ -88,13 +88,32 @@ def mapa(id):
 	r2=requests.get(url_base,params=payload2)
 	lista3=[]
 	print r2.url
-	if r.status_code==200:
-		doc2 = json.loads(r.text[14:-1])
+	if r2.status_code==200:
+		doc2 = json.loads(r2.text[14:-1])
 		#print doc2
 #Obtener latitud y longitud
-		for geo in doc2["photo"]["location"]:
-			if geo.has_key("location"):
-				lista3.append([geo['latitude'],geo["longitude"]])
+		if doc2.has_key('photo'):
+			if doc2['photo'].has_key('location'):
+
+#			for geo in doc2["photo"]["location"].keys():
+#					lista3.append(doc2['photo']['location']['latitude'])
+#				lista3.append(str(geo["longitude"]))
+#				if geo == 'latitude':
+#					cadena = str(doc2['photo']['location'][geo])
+#					cadena = cadena + ' --- ' + geo
+#					return cadena
+#		if doc2.has_key('photo'):
+#			fich1 = doc2["photo"]["location"]['latitude']
+#			fich2 = doc2["photo"]["location"]['longitude']
+#			lista3.append(fich1,fich2)
+
+#MI CODIGO OPCION 1:
+#			for geo in doc2["photo"]["location"]:
+#				lista3.append(str(geo["latitude"]))
+#				lista3.append(str(geo["longitude"]))
+#MI CODIGO OPCION 2:
+				lista3.append([float(doc2["photo"]["location"]["latitude"]),float(doc2["photo"]["location"]["longitude"])])
+				print lista3
 
 	return template("mapa.tpl",ubicaciones=lista3)
 
