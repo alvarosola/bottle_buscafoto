@@ -38,6 +38,9 @@
             <p>{{nombre}}: {{dato}}</p>
             
         % end
+        % if mapa:
+            <a href="/mapa/{{id}}">Mapa</a>
+        % end
 
 
     <!-- Put your page content here! -->

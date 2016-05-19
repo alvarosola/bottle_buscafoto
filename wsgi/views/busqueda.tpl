@@ -35,8 +35,10 @@
                 <a href="{{url[1]}}"><img src="{{url[0]}}"></a>
             </p>
             <p>
-                <a href="/detalles/{{id}}">Detalles</a> <a href="/mapa/{{id}}">Mapa</a>
+                <a href="/detalles/{{id}}">Detalles</a> 
+                
             </p>
+
         % end
     <!-- Put your page content here! -->
 

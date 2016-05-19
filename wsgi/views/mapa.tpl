@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>FindIT</title>
+    <title>Mapa</title>
     <link rel="icon" type="image/png" href="/static/findit-ico.png">
     <link rel="stylesheet" href="/static/style.css">
   <style>
@@ -52,14 +52,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </head>
   <body>
     	<header>
-            <div class="wrap">
-                <div class="logo">
-                    <a href="/">
-                        <h1>Prueba</h1>
-                    </a>
-                </div><!-- logo -->
-            </div><!-- wrap -->
-        </header>
+        <a href="/">
+          <h1>Volver una buscar foto</h1>
+        </a>
+
+      </header>
 	<div id="map-canvas">
 	</div>
 	<script src="js/jquery.js"></script>

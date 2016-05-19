@@ -9,7 +9,6 @@ sys.setdefaultencoding("utf-8")
 #from urlparse import parse_qs
 
 key="5e540fc0e14e6863f1d69c5a15880c4a"
-key_map="AIzaSyDFSz1bWuKblcP_HgspOEHPZKt8KMrqZkg"
 url_base="https://api.flickr.com/services/rest"
 
 #ruta index
@@ -20,6 +19,8 @@ def index():
 #ruta busqueda
 @route('/busqueda',method='POST')
 def busqueda():
+
+#Request de url de fotos
 	nombre=request.forms.get('foto')
 	payload={'method':'flickr.photos.search','api_key':key,'text':nombre,'extras':'url_o,url_s','format':'json'}
 #EJEMPLO DE URL:
@@ -27,6 +28,7 @@ def busqueda():
 	r=requests.get(url_base,params=payload)
 	lista=[]
 	lista1=[]
+	
 	print r.url
 	if r.status_code==200:
 		doc = json.loads(r.text[14:-1])
@@ -39,14 +41,27 @@ def busqueda():
 		for i in doc["photos"]["photo"]:
 			if i.has_key("id"):
 				lista1.append(i['id'])
-
-		print lista
+				
+#		print lista
 		return template("busqueda.tpl",info=lista,ids=lista1)
 
 #ruta detalle camara
 
 @route ('/detalles/<id>')
 def detalles(id):
+#Obtener ids geolocalizacion	
+	tienemapa=False
+	payload3={'method':'flickr.photos.geo.getLocation','api_key':key,'photo_id':id,'format':'json'}
+	#EJEMPLO URL:
+	#https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=77e3791687c77867f657da988a6637ef&photo_id=3231279723&format=json
+	r3=requests.get(url_base,params=payload3)
+	
+	if r3.status_code==200:
+		doc3 = json.loads(r3.text[14:-1])
+		if doc3.has_key('photo'):
+			if doc3['photo'].has_key('location'):
+				tienemapa=True
+	
 	payload1={'method':'flickr.photos.getExif','api_key':key,'photo_id':id,'format':'json'}
 #EJEMPLO URL:
 #https://api.flickr.com/services/rest/?method=flickr.photos.getExif&api_key=01480c276d9e03abc8cb4e2273450144&photo_id=26952354992&format=json
@@ -55,7 +70,7 @@ def detalles(id):
 	lista_info=[]
 	lista_label=["Orientation","Software","Exposure","Aperture","ISO Speed","Date and Time (Original)","Flash","Saturation"]
 	lista_label_esp=["Orientacion","Software","Exposure","Apertura","ISO","Fecha","Flash","Saturacion"]
-	print r1.url
+	
 	if r1.status_code==200:
 		doc1 = json.loads(r1.text[14:-1])
 
@@ -77,7 +92,7 @@ def detalles(id):
 		else:
 			fich = 'No hay informacion'
 
-	return template('detalles.tpl',camara=fich,labels=lista_label_esp,info=lista_info)
+	return template('detalles.tpl',camara=fich,labels=lista_label_esp,info=lista_info,mapa=tienemapa,id=id)
 
 #ruta lugar geografico
 @route("/mapa/<id>")
@@ -87,36 +102,19 @@ def mapa(id):
 #https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=77e3791687c77867f657da988a6637ef&photo_id=3231279723&format=json
 	r2=requests.get(url_base,params=payload2)
 	lista3=[]
+	id_geo=[]
 	print r2.url
 	if r2.status_code==200:
 		doc2 = json.loads(r2.text[14:-1])
 		#print doc2
+
 #Obtener latitud y longitud
 		if doc2.has_key('photo'):
 			if doc2['photo'].has_key('location'):
 
-#			for geo in doc2["photo"]["location"].keys():
-#					lista3.append(doc2['photo']['location']['latitude'])
-#				lista3.append(str(geo["longitude"]))
-#				if geo == 'latitude':
-#					cadena = str(doc2['photo']['location'][geo])
-#					cadena = cadena + ' --- ' + geo
-#					return cadena
-#		if doc2.has_key('photo'):
-#			fich1 = doc2["photo"]["location"]['latitude']
-#			fich2 = doc2["photo"]["location"]['longitude']
-#			lista3.append(fich1,fich2)
-
-#MI CODIGO OPCION 1:
-#			for geo in doc2["photo"]["location"]:
-#				lista3.append(str(geo["latitude"]))
-#				lista3.append(str(geo["longitude"]))
-#MI CODIGO OPCION 2:
 				lista3.append([float(doc2["photo"]["location"]["latitude"]),float(doc2["photo"]["location"]["longitude"])])
-				print lista3
 
 	return template("mapa.tpl",ubicaciones=lista3)
-
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
