@@ -7,7 +7,7 @@
 body {
     margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     background-color: transparent;
-    margin-left: 40px;
+    margin-left: 20px;
 }
 img{width:20%; height:20%;}
 
