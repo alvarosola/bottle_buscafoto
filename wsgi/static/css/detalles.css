@@ -6,9 +6,10 @@
 
 body {
     margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    background-color: transparent; 
+    background-color: transparent;
+    padding:20px 30px 0 30px;
 }
-img{width:20%; height:20%}
+img{width:20%; height:20%;}
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
@@ -18,4 +19,5 @@ img{width:20%; height:20%}
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    padding:20px 30px 0 30px;
 }

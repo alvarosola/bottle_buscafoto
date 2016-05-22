@@ -5,9 +5,6 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-#from requests_oauthlib import OAuth1
-#from urlparse import parse_qs
-
 key="5e540fc0e14e6863f1d69c5a15880c4a"
 url_base="https://api.flickr.com/services/rest"
 
@@ -45,8 +42,7 @@ def busqueda():
 #		print lista
 		return template("busqueda.tpl",info=lista,ids=lista1)
 
-#ruta detalle camara
-
+#ruta detalles
 @route ('/detalles/<id>')
 def detalles(id):
 #Obtener ids geolocalizacion	
@@ -94,7 +90,7 @@ def detalles(id):
 
 	return template('detalles.tpl',camara=fich,labels=lista_label_esp,info=lista_info,mapa=tienemapa,id=id)
 
-#ruta lugar geografico
+#ruta mapa geografico
 @route("/mapa/<id>")
 def mapa(id):
 	payload2={'method':'flickr.photos.geo.getLocation','api_key':key,'photo_id':id,'format':'json'}

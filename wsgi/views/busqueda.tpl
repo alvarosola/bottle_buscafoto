@@ -30,15 +30,13 @@
 <body>
 		<h1>Resultados de la búsqueda</h1>
 
-        % for id,url in zip (ids,info):
+        %for id,url in zip (ids,info):
             <p>
                 <a href="{{url[1]}}"><img src="{{url[0]}}"></a>
             </p>
             <p>
                 <a href="/detalles/{{id}}">Detalles</a> 
-                
             </p>
-
         % end
     <!-- Put your page content here! -->
 
