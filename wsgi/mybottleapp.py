@@ -78,7 +78,7 @@ def detalles(id):
 				if not len(doc1['photo']['camera']) <= 2:
 					fich = doc1['photo']['camera']
 				else:
-					fich = 'La imagen no contiene informacion de la camara'
+					fich = 'La imagen no contiene información de la camara'
 		
 #Obtener caracteristicas de fotos
 			for info in doc1['photo']['exif']:
@@ -86,7 +86,7 @@ def detalles(id):
 					lista_info.append(info['raw']['_content'])
 
 		else:
-			fich = 'No hay informacion'
+			fich = 'No hay información'
 
 	return template('detalles.tpl',camara=fich,labels=lista_label_esp,info=lista_info,mapa=tienemapa,id=id)
 
