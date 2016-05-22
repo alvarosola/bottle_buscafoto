@@ -53,7 +53,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <body>
     	<header>
         <a href="/">
-          <h1>Volver una buscar foto</h1>
+          <h1>Buscador</h1>
         </a>
 
       </header>

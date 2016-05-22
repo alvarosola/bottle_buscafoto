@@ -32,8 +32,9 @@
 
         <h3>Modelo</h3>
             <p>
-                {{camara}}<img class="logo-camara" src="/static/images/camara.png"></img>
+                {{camara}}
             </p>
+        <img class="logo-camara" src="/static/images/camara.png">
 
         <h3>Características de la foto</h3>
         % for nombre,dato in zip (labels,info):

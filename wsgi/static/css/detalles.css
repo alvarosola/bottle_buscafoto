@@ -8,6 +8,7 @@ body {
     margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     background-color: transparent; 
 }
+img{width:20%; height:20%}
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
@@ -18,4 +19,3 @@ body {
     background-size: cover;
     -o-background-size: cover;
 }
-img.logo-camara{size:100%}
