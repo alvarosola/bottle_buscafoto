@@ -31,7 +31,9 @@
 		<h1>Detalles de la foto</h1>
 
         <h3>Modelo</h3>
-            <p>{{camara}}</p>
+            <p>
+                {{camara}}<img class="logo-camara" src="/static/images/camara.png"></img>
+            </p>
 
         <h3>Características de la foto</h3>
         % for nombre,dato in zip (labels,info):
