@@ -42,7 +42,7 @@
             
         % end
         % if mapa:
-            <a href="/mapa/{{id}}">Mapa</a>
+            <h3><a href="/mapa/{{id}}">Mapa</a></h3>
         % end
 
 
