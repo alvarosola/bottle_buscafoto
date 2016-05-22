@@ -29,7 +29,7 @@
 
 <body>
 	<div class="formulario">
-		<h1>Busca fotos</h1>
+		<h1>BUSCA FOTOS</h1>
 		<form action = '/busqueda' method='POST'>
 			<h2>Bienvenido, introduzca un nombre.</h2>
 			<input type="text" name="foto" size="50" placeholder='Introduzca un nombre'/>
