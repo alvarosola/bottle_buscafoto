@@ -1,19 +1,6 @@
-Bottle on OpenShift
+BUSCA FOTOS
 ===================
 
-This git repository helps you get up and running quickly w/ a Bottle installation
-on the Red Hat OpenShift PaaS.
+Programa bottle, que lee la información de web api (flickr). El programa bottle con sus template esta alojado en Openshift.
 
-
-Running on OpenShift
-----------------------------
-
-Create an account at https://www.openshift.com/
-
-Create a python application based on the code in this repository
-
-    rhc app create bottle python-2.6 --from-code https://github.com/openshift-quickstart/bottle-openshift-quickstart.git
-
-That's it, you can now checkout your application at:
-
-    http://bottle-$yournamespace.rhcloud.com
+El programa busca fotos y muestra información del modelo de la camara, características de la foto y si la foto fue subida con geolocalización, muestra el mapa de google maps y marca donde se hizo la foto.
